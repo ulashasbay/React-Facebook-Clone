@@ -1,9 +1,17 @@
 import "./App.css";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="app">
-      <h1>Lets Build A Facebook Clone</h1>
+      
+      {/* Header */}
+      <Header />
+
+      {/* App Body */}
+        {/* Sidebar */}
+        {/* Feed */}
+        {/* Widgets */}
     </div>
   );
 }

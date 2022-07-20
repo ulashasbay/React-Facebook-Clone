@@ -4,8 +4,7 @@ import { useAuth } from "../../context/authContext";
 import "./Login.css";
 
 function Login() {
-
-    const { signInWithGoogle } = useAuth();
+  const { signInWithGoogle } = useAuth();
 
   return (
     <div className="login">
@@ -20,7 +19,7 @@ function Login() {
         />
       </div>
       <Button type="submit" onClick={signInWithGoogle}>
-        Sign In
+        Sign In With Google
       </Button>
     </div>
   );

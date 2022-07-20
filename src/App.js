@@ -8,6 +8,7 @@ import { useAuth } from "./context/authContext";
 
 function App() {
   const { currentUser, isLoading } = useAuth();
+
   return (
     <div className="app">
       {!isLoading &&

@@ -12,6 +12,7 @@ import { useAuth } from "../../context/authContext";
 
 function Sidebar() {
   const { currentUser } = useAuth();
+
   return (
     <div className="sidebar">
       <SidebarRow src={currentUser.photoURL} title={currentUser.displayName} />

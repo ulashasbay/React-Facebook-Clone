@@ -10,9 +10,12 @@ import { Avatar, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import ForumIcon from '@mui/icons-material/Forum';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuth } from '../../context/authContext';
 
 function Header() {
+
+    const { logout, currentUser } = useAuth();
   return (
     <div className='header'>
         <div className="header__left">
@@ -43,8 +46,8 @@ function Header() {
 
         <div className="header__right">
             <div className="header__info">
-                <Avatar />
-                <h4>Ulas</h4>
+                <Avatar src={currentUser.photoURL} />
+                <h4>{currentUser.displayName}</h4>
             </div>
             <IconButton>
                 <AddIcon />
@@ -55,8 +58,8 @@ function Header() {
             <IconButton>
                 <NotificationsActiveIcon />
             </IconButton>
-            <IconButton>
-                <ExpandMoreIcon />
+            <IconButton onClick={logout} >
+                <LogoutIcon />
             </IconButton>
         </div>
 

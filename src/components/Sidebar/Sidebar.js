@@ -8,14 +8,13 @@ import ChatIcon from "@mui/icons-material/Chat";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
+import { useAuth } from "../../context/authContext";
 
 function Sidebar() {
+  const { currentUser } = useAuth();
   return (
     <div className="sidebar">
-      <SidebarRow
-        src="https://img1.ak.crunchyroll.com/i/spire3/b65f48a5273f8634a7068d90e1ba0b441588641802_large.png"
-        title="Monkey D. Luffy"
-      />
+      <SidebarRow src={currentUser.photoURL} title={currentUser.displayName} />
       <SidebarRow
         Icon={LocalHospitalIcon}
         title="COVID-19 Information Center"

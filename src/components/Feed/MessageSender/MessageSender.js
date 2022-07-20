@@ -4,11 +4,14 @@ import "./MessageSender.css";
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import { useAuth } from '../../../context/authContext';
 
 function MessageSender() {
 
     const [input, setInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+
+    const { currentUser } = useAuth();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,9 +25,9 @@ function MessageSender() {
   return (
     <div className='messageSender'>
         <div className="messageSender__top">
-            <Avatar />
+            <Avatar src={currentUser.photoURL} />
             <form >
-                <input value={input} onChange={(e) => {setInput(e.target.value)}} className='messageSender__input' placeholder={`What's on your mind?`} />
+                <input value={input} onChange={(e) => {setInput(e.target.value)}} className='messageSender__input' placeholder={`What's on your mind, ${currentUser.displayName}?`} />
                 <input value={imageUrl} onChange={(e) => {setImageUrl(e.target.value)}} placeholder='image URL (Optional)' />
                 <button onClick={handleSubmit} type="submit">
                     Hidden Submit

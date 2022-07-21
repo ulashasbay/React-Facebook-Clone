@@ -20,7 +20,7 @@ function MessageSender() {
 
   const userPostRef = collection(db, "posts");
   const createPost = async (data) => {
-    const docRef = await addDoc(userPostRef, data);
+    await addDoc(userPostRef, data);
   };
 
   const handleSubmit = (e) => {

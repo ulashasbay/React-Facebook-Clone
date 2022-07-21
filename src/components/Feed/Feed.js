@@ -9,12 +9,12 @@ import { db } from "../../config/firebase";
 function Feed() {
   const [posts, setPosts] = useState([]);
 
-  const userPostsRef = query(
-    collection(db, "posts"),
-    orderBy("timestamp", "desc")
-  );
-
   useEffect(() => {
+    const userPostsRef = query(
+      collection(db, "posts"),
+      orderBy("timestamp", "desc")
+    );
+
     const unsubscribe = onSnapshot(userPostsRef, (snapshot) =>
       setPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
